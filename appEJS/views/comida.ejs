@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodSite</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#fff8f0;
+color:#333;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:#ff6b35;
+color:white;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(135deg,#ff6b35,#ff9f1c);
+color:white;
+}
+
+.menu{
+padding:60px 10%;
+text-align:center;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card h3{
+margin:15px 0;
+}
+
+.card p{
+padding:0 15px;
+}
+
+button{
+margin:20px;
+padding:10px 20px;
+border:none;
+background:#ff6b35;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#222;
+color:white;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🍴 FoodSite</h1>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Menu</a>
+<a href="#">Contato</a>
+</nav>
+</header>
+
+<section class="hero">
+<h2>Comida deliciosa todos os dias</h2>
+<p>Descubra pratos incríveis preparados com amor.</p>
+</section>
+
+<section class="menu">
+
+<h2>Nosso Menu</h2>
+
+<div class="cards">
+
+<% comidas.forEach(comida => { %>
+
+<div class="card">
+
+<img src="<%= comida.img %>" alt="<%= comida.nome %>">
+
+<h3><%= comida.nome %></h3>
+
+<p><%= comida.desc %></p>
+
+<button>Pedir</button>
+
+</div>
+
+<% }) %>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 FoodSite</p>
+</footer>
+
+</body>
+</html>

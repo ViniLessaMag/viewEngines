@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Carro</title>
+</head>
+
+<body>
+
+    <h1>Lista de Carros</h1>
+
+    <ul>
+        {{#each carro}}
+
+        <li>
+            <h3>{{nome}}</h3>
+            <p>{{desc}}</p>
+            <img src="{{img}}" width="200">
+        </li>
+
+        {{/each}}
+    </ul>
+
+</body>
+
+</html>
