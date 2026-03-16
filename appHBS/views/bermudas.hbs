@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bermudas - Minha Loja</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 1rem;
+            color: white;
+        }
+
+        .navbar h1 {
+            margin-bottom: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #555;
+        }
+
+        .nav-links a.active {
+            background-color: #007bff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .page-header h2 {
+            color: #333;
+            font-size: 2rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .filters select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .product-sizes {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .size-tag {
+            background-color: #f0f0f0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .btn-add {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-add:hover {
+            background-color: #0056b3;
+        }
+
+        .promo-banner {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .promo-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-banner p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1>Minha Loja de Roupas</h1>
+        <div class="nav-links">
+            <a href="/loja">Início</a>
+            <a href="/loja/camisetas">Camisetas</a>
+            <a href="/loja/bermudas" class="active">Bermudas</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="promo-banner">
+            <h3>🔥 Promoção de Verão!</h3>
+            <p>Compre 2 bermudas e ganhe 10% de desconto</p>
+        </div>
+
+        <div class="page-header">
+            <h2>Bermudas</h2>
+            <div class="filters">
+                <select>
+                    <option value="">Ordenar por</option>
+                    <option value="price-asc">Menor preço</option>
+                    <option value="price-desc">Maior preço</option>
+                    <option value="name">Nome</option>
+                </select>
+                <select>
+                    <option value="">Tamanho</option>
+                    <option value="p">P</option>
+                    <option value="m">M</option>
+                    <option value="g">G</option>
+                    <option value="gg">GG</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <!-- Bermuda 1 -->
+            <div class="product-card">
+                <div class="product-image">🩳</div>
+                <div class="product-info">
+                    <h3>Bermuda Jeans</h3>
+                    <div class="product-price">R$ 89,90</div>
+                    <p class="product-description">Bermuda jeans clássica, modelagem confortável</p>
+                    <div class="product-sizes">
+                        <span class="size-tag">38</span>
+                        <span class="size-tag">40</span>
+                        <span class="size-tag">42</span>
+                        <span class="size-tag">44</span>
+                    </div>
+                    <button class="btn-add">Adicionar ao carrinho</button>
+                </div>
+            </div>
+
+            <!-- Bermuda 2 -->
+            <div class="product-card">
+                <div class="product-image">🩳</div>
+                <div class="product-info">
+                    <h3>Bermuda Moletom</h3>
+                    <div class="product-price">R$ 69,90</div>
+                    <p class="product-description">Ideal para dias mais frios, super confortável</p>
+                    <div class="product-sizes">
+                        <span class="size-tag">P</span>
+                        <span class="size-tag">M</span>
+                        <span class="size-tag">G</span>
+                    </div>
+                    <button class="btn-add">Adicionar ao carrinho</button>
+                </div>
+            </div>
+
+            <!-- Bermuda 3 -->
+            <div class="product-card">
+                <div class="product-image">🩳</div>
+                <div class="product-info">
+                    <h3>Bermuda de Praia</h3>
+                    <div class="product-price">R$ 59,90</div>
+                    <p class="product-description">Tecido quick-dry, perfeita para praia e piscina</p>
+                    <div class="product-sizes">
+                        <span class="size-tag">P</span>
+                        <span class="size-tag">M</span>
+                        <span class="size-tag">G</span>
+                        <span class="size-tag">GG</span>
+                    </div>
+                    <button class="btn-add">Adicionar ao carrinho</button>
+                </div>
+            </div>
+
+            <!-- Bermuda 4 -->
+            <div class="product-card">
+                <div class="product-image">🩳</div>
+                <div class="product-info">
+                    <h3>Bermuda Sarja</h3>
+                    <div class="product-price">R$ 79,90</div>
+                    <p class="product-description">Tecido leve e resistente, ideal para o dia a dia</p>
+                    <div class="product-sizes">
+                        <span class="size-tag">36</span>
+                        <span class="size-tag">38</span>
+                        <span class="size-tag">40</span>
+                        <span class="size-tag">42</span>
+                    </div>
+                    <button class="btn-add">Adicionar ao carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Minha Loja de Roupas. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
